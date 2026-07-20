@@ -1,0 +1,56 @@
+[
+  {
+    "id": "p-1001",
+    "name": "Aurora Wireless Headphones",
+    "stock": 42,
+    "price": 129.99,
+    "createdDate": "2024-01-12T10:00:00.000Z",
+    "updatedDate": "2024-06-01T10:00:00.000Z",
+    "productImageFiles": []
+  },
+  {
+    "id": "p-1002",
+    "name": "Nimbus Mechanical Keyboard",
+    "stock": 18,
+    "price": 89.5,
+    "createdDate": "2024-02-03T10:00:00.000Z",
+    "updatedDate": "2024-06-01T10:00:00.000Z",
+    "productImageFiles": []
+  },
+  {
+    "id": "p-1003",
+    "name": "Harbor USB-C Hub",
+    "stock": 75,
+    "price": 49.0,
+    "createdDate": "2024-03-20T10:00:00.000Z",
+    "updatedDate": "2024-06-01T10:00:00.000Z",
+    "productImageFiles": []
+  },
+  {
+    "id": "p-1004",
+    "name": "Summit 27\" Monitor",
+    "stock": 9,
+    "price": 349.0,
+    "createdDate": "2024-04-08T10:00:00.000Z",
+    "updatedDate": "2024-06-01T10:00:00.000Z",
+    "productImageFiles": []
+  },
+  {
+    "id": "p-1005",
+    "name": "Cedar Laptop Stand",
+    "stock": 30,
+    "price": 59.99,
+    "createdDate": "2024-05-01T10:00:00.000Z",
+    "updatedDate": "2024-06-01T10:00:00.000Z",
+    "productImageFiles": []
+  },
+  {
+    "id": "p-1006",
+    "name": "Pulse Fitness Tracker",
+    "stock": 55,
+    "price": 79.0,
+    "createdDate": "2024-05-15T10:00:00.000Z",
+    "updatedDate": "2024-06-01T10:00:00.000Z",
+    "productImageFiles": []
+  }
+]

@@ -59,6 +59,24 @@ The application leverages modern web technologies including JWT authentication w
 - 🌐 **API Communication**: Centralized HTTP service with error handling
 - 🔌 **Real-time**: SignalR hub connections with automatic reconnection
 
+## 🧪 Local mock backend (demo)
+
+The original app expects `https://localhost:7275`. For offline / Devin demos this fork ships a **zero-dependency mock API**:
+
+```bash
+npm run api          # http://localhost:3333
+npm start            # http://localhost:4200  (separate terminal)
+```
+
+**Happy paths**
+
+| Flow | Steps |
+|------|--------|
+| Product list | Visit http://localhost:4200/products |
+| Login → admin | Visit http://localhost:4200/login — user `demo` / password `demo` → open `/admin` |
+
+Details: [`demo-api/README.md`](./demo-api/README.md). SignalR is off by default (`environment.realtimeEnabled = false`).
+
 ## 🚀 Tech Stack
 
 ### Core Framework

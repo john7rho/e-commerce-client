@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  /** Mock API from `demo-api/server.js` (npm run api) */
+  apiBaseUrl: 'http://localhost:3333/api',
+  /** Host:port for JwtModule allowedDomains (no scheme) */
+  apiHost: 'localhost:3333',
+  /** Offline demos: do not open SignalR to a missing hub */
+  realtimeEnabled: false,
+  productHubUrl: 'http://localhost:3333/products-hub',
 };
 
 /*

@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './ui/components/login/login.component';
 import { UiModule } from './ui/ui.module';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -32,7 +33,7 @@ import { UiModule } from './ui/ui.module';
     JwtModule.forRoot({
       config: {
         tokenGetter: () => localStorage.getItem('accessToken'),
-        allowedDomains: ['localhost:7275'],
+        allowedDomains: [environment.apiHost, 'localhost:7275'],
         // disallowedRoutes
       },
     }),
@@ -41,8 +42,7 @@ import { UiModule } from './ui/ui.module';
   providers: [
     {
       provide: 'baseUrl',
-      useValue: 'https://localhost:7275/api',
-      multi: true,
+      useValue: environment.apiBaseUrl,
     },
     {
       provide: 'SocialAuthServiceConfig',

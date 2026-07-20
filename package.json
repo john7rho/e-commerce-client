@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "api": "node demo-api/server.js",
+    "demo": "node demo-api/server.js & ng serve --port 4200",
+    "api:health": "node -e \"require('http').get('http://localhost:3333/health',r=>{let d='';r.on('data',c=>d+=c);r.on('end',()=>{console.log(d);process.exit(r.statusCode===200?0:1)})}).on('error',e=>{console.error(e);process.exit(1)})\""
   },
   "private": true,
   "dependencies": {

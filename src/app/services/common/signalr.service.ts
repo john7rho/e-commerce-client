@@ -4,6 +4,7 @@ import {
   HubConnectionBuilder,
   HubConnectionState,
 } from '@microsoft/signalr';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +17,11 @@ export class SignalRService {
   }
 
   start(hubUrl: string) {
+    // Offline / mock-backend demos: never open a live hub (avoids reconnect spam).
+    if (!environment.realtimeEnabled) {
+      return;
+    }
+
     if (
       !this.connection ||
       this.connection?.state == HubConnectionState.Disconnected
@@ -46,6 +52,9 @@ export class SignalRService {
     successCallback?: (value) => void,
     errorCallback?: (error) => void
   ) {
+    if (!environment.realtimeEnabled || !this.connection) {
+      return;
+    }
     this.connection
       .invoke(methodName, message)
       .then(successCallback)
@@ -53,6 +62,9 @@ export class SignalRService {
   }
 
   on(methodName: string, callBack: (...message: any) => void) {
+    if (!environment.realtimeEnabled || !this.connection) {
+      return;
+    }
     this.connection.on(methodName, callBack);
   }
 }

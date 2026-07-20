@@ -1,4 +1,4 @@
-import { HubUrls } from './../../../constants/hub-urls';
+import { ProductHubUrl } from './../../../constants/hub-urls';
 import { ReceiveFunctions } from './../../../constants/receive-functions';
 import { SignalRService } from './../../../services/common/signalr.service';
 import { Component, OnInit } from '@angular/core';
@@ -22,7 +22,7 @@ export class DashboardComponent extends BaseComponent implements OnInit {
     private signalRService: SignalRService
   ) {
     super(spinner);
-    signalRService.start(HubUrls.ProductHub);
+    signalRService.start(ProductHubUrl);
   }
 
   ngOnInit(): void {
