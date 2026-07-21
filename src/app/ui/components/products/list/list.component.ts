@@ -4,6 +4,7 @@ import { Component, DebugElement, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/common/models/product.service';
 import { FileService } from 'src/app/services/common/models/file.service';
 import { BaseStorageUrl } from 'src/app/contracts/baseStorageUrl';
+import { CartService } from 'src/app/services/common/models/cart.service';
 
 @Component({
   selector: 'app-list',
@@ -14,7 +15,8 @@ export class ListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private fileService: FileService
+    private fileService: FileService,
+    private cartService: CartService
   ) {}
 
   products: ProductList[];
@@ -24,6 +26,11 @@ export class ListComponent implements OnInit {
   pagesCount: number;
   productsPerPage: number = 4;
   pageNumbers: number[] = [];
+
+  addToCart(product: ProductList, event: MouseEvent): void {
+    event.preventDefault();
+    this.cartService.addToCart(product);
+  }
 
   async ngOnInit() {
     this.baseStorageUrl = await this.fileService.getBaseStorageUrl();
