@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductImageDialogComponent } from './product-image-dialog.component';
+import { AppModule } from '../../app.module';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 describe('ProductImageDialogComponent', () => {
   let component: ProductImageDialogComponent;
@@ -8,7 +10,11 @@ describe('ProductImageDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductImageDialogComponent ]
+      imports: [AppModule],
+      providers: [
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MatDialogRef, useValue: {} },
+      ],
     })
     .compileComponents();
   });
