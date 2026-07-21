@@ -1,0 +1,37 @@
+<div class="container mt-3">
+  <div class="row g-2 align-items-center">
+    <div class="col-12 col-md-6">
+      <div class="input-group">
+        <span class="input-group-text">Search</span>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Filter products by name..."
+          aria-label="Filter products by name"
+          [(ngModel)]="name"
+          (ngModelChange)="emitChange()"
+        />
+      </div>
+    </div>
+    <div class="col-8 col-md-4">
+      <div class="input-group">
+        <label class="input-group-text" for="product-sort">Sort by price</label>
+        <select
+          id="product-sort"
+          class="form-select"
+          [(ngModel)]="sort"
+          (ngModelChange)="emitChange()"
+        >
+          <option value="none">Default</option>
+          <option value="price-asc">Low to High</option>
+          <option value="price-desc">High to Low</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-4 col-md-2 d-grid">
+      <button type="button" class="btn btn-outline-secondary" (click)="clear()">
+        Clear
+      </button>
+    </div>
+  </div>
+</div>

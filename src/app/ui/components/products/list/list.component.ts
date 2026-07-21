@@ -4,6 +4,7 @@ import { Component, DebugElement, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/common/models/product.service';
 import { FileService } from 'src/app/services/common/models/file.service';
 import { BaseStorageUrl } from 'src/app/contracts/baseStorageUrl';
+import { ProductFilter } from '../search-bar/search-bar.component';
 
 @Component({
   selector: 'app-list',
@@ -18,6 +19,8 @@ export class ListComponent implements OnInit {
   ) {}
 
   products: ProductList[];
+  filteredProducts: ProductList[] = [];
+  filter: ProductFilter = { name: '', sort: 'none' };
   baseStorageUrl: BaseStorageUrl;
   currentPageNumber: number;
   productsCount: number;
@@ -58,6 +61,8 @@ export class ListComponent implements OnInit {
         return productList;
       });
 
+      this.applyFilter();
+
       this.productsCount = data.productsCount;
       this.pagesCount = Math.ceil(this.productsCount / this.productsPerPage);
 
@@ -85,5 +90,27 @@ export class ListComponent implements OnInit {
         }
       }
     });
+  }
+
+  onFilterChange(filter: ProductFilter): void {
+    this.filter = filter;
+    this.applyFilter();
+  }
+
+  private applyFilter(): void {
+    let result = [...(this.products ?? [])];
+
+    const term = this.filter.name.trim().toLowerCase();
+    if (term) {
+      result = result.filter((p) => p.name.toLowerCase().includes(term));
+    }
+
+    if (this.filter.sort === 'price-asc') {
+      result.sort((a, b) => a.price - b.price);
+    } else if (this.filter.sort === 'price-desc') {
+      result.sort((a, b) => b.price - a.price);
+    }
+
+    this.filteredProducts = result;
   }
 }

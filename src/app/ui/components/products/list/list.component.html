@@ -1,9 +1,19 @@
+<app-product-search-bar
+  (filterChange)="onFilterChange($event)"
+></app-product-search-bar>
+
 <div class="container mt-2">
+  <div
+    class="alert alert-info text-center"
+    *ngIf="products && !filteredProducts.length"
+  >
+    No products match your search on this page.
+  </div>
   <div class="row gap-3 m-auto">
     <div
       class="card col-3 gx-0"
       style="width: 18.8rem"
-      *ngFor="let product of products"
+      *ngFor="let product of filteredProducts"
     >
       <img
         *ngIf="!product.productImageFiles.length"
