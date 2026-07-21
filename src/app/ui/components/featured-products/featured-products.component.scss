@@ -1,0 +1,42 @@
+.featured-products {
+  margin: 1rem auto 2rem;
+  max-width: 58rem;
+  text-align: center;
+}
+
+.featured-products__carousel {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.featured-products__card {
+  align-items: center;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 1.5rem;
+  min-height: 16rem;
+  padding: 1rem;
+  text-align: left;
+  width: min(32rem, 100%);
+}
+
+.featured-products__card img {
+  height: 14rem;
+  object-fit: cover;
+  width: 14rem;
+}
+
+.featured-products__control {
+  background: #198754;
+  border: 0;
+  border-radius: 0.25rem;
+  color: white;
+  padding: 0.5rem 0.75rem;
+}
+
+.featured-products__status {
+  padding: 2rem;
+}

@@ -1,6 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import { FeaturedProductsModule } from '../featured-products/featured-products.module';
+import { ProductService } from '../../../services/common/models/product.service';
+
+const productServiceMock = jasmine.createSpyObj('ProductService', ['read']);
+productServiceMock.read.and.returnValue(
+  Promise.resolve({ productsCount: 0, products: [] })
+);
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +15,14 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [HomeComponent],
+      imports: [FeaturedProductsModule],
+      providers: [
+        {
+          provide: ProductService,
+          useValue: productServiceMock,
+        },
+      ],
     })
     .compileComponents();
   });
