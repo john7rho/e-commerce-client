@@ -1,1 +1,30 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+// Dark theme, toggled by ThemeService adding `dark-theme` to <body>.
+body.dark-theme {
+  background-color: #121212;
+  color: #e9ecef;
+}
+
+body.dark-theme .navbar.bg-light {
+  background-color: #1e1e1e !important;
+}
+
+body.dark-theme .navbar .navbar-brand,
+body.dark-theme .navbar .nav-link,
+body.dark-theme .navbar .navbar-toggler {
+  color: #e9ecef !important;
+}
+
+body.dark-theme .card,
+body.dark-theme .list-group-item,
+body.dark-theme .table {
+  background-color: #1e1e1e;
+  color: #e9ecef;
+  border-color: #333;
+}
+
+body.dark-theme a {
+  color: #8ab4f8;
+}
+

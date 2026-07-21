@@ -1,35 +1,50 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { JwtModule } from '@auth0/angular-jwt';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        BrowserAnimationsModule,
+        HttpClientTestingModule,
+        JwtModule.forRoot({
+          config: {
+            tokenGetter: () => localStorage.getItem('accessToken'),
+          },
+        }),
+        NgxSpinnerModule,
+        RouterTestingModule,
+        ToastrModule.forRoot(),
       ],
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it(`should have as title 'ECommerceAppClient'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('ECommerceAppClient');
-  });
-
-  it('should render title', () => {
+  it('should render the brand and primary navigation links', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('ECommerceAppClient app is running!');
+    expect(compiled.querySelector('.navbar-brand')?.textContent).toContain(
+      'E-Commerce'
+    );
+    expect(
+      compiled.querySelector('a[routerLink="products"]')?.textContent
+    ).toContain('Products');
+    expect(
+      compiled.querySelector('a[routerLink="baskets"]')?.textContent
+    ).toContain('Baskets');
   });
 });

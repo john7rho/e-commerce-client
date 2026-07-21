@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './ui/components/login/login.component';
 import { UiModule } from './ui/ui.module';
+import { ThemeToggleModule } from './ui/components/theme-toggle/theme-toggle.module';
 import { environment } from 'src/environments/environment';
 
 @NgModule({
@@ -27,6 +28,7 @@ import { environment } from 'src/environments/environment';
     BrowserAnimationsModule,
     AdminModule,
     UiModule,
+    ThemeToggleModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule,
     HttpClientModule,
