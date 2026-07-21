@@ -2,10 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FileUploadDialogComponent } from './file-upload-dialog.component';
 import { AppModule } from '../../app.module';
-import {
-  MAT_LEGACY_DIALOG_DATA,
-  MatLegacyDialogRef,
-} from '@angular/material/legacy-dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 describe('FileUploadDialogComponent', () => {
   let component: FileUploadDialogComponent;
@@ -15,8 +12,8 @@ describe('FileUploadDialogComponent', () => {
     await TestBed.configureTestingModule({
       imports: [AppModule],
       providers: [
-        { provide: MAT_LEGACY_DIALOG_DATA, useValue: {} },
-        { provide: MatLegacyDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MatDialogRef, useValue: {} },
       ],
     })
     .compileComponents();
