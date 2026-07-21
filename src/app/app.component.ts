@@ -13,6 +13,8 @@ import { AuthService } from './services/common/auth.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  title = 'ECommerceAppClient';
+
   constructor(
     public authService: AuthService,
     private toastrSerice: CustomToastrService,
