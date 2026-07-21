@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 import { ProductsComponent } from './products.component';
 
@@ -6,11 +7,21 @@ describe('ProductsComponent', () => {
   let component: ProductsComponent;
   let fixture: ComponentFixture<ProductsComponent>;
 
+  const spinnerMock = {
+    show: jasmine.createSpy('show'),
+    hide: jasmine.createSpy('hide'),
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductsComponent ]
+      declarations: [ProductsComponent],
+      providers: [{ provide: NgxSpinnerService, useValue: spinnerMock }],
+      schemas: [],
     })
-    .compileComponents();
+      .overrideComponent(ProductsComponent, {
+        set: { template: '' },
+      })
+      .compileComponents();
   });
 
   beforeEach(() => {
