@@ -33,6 +33,13 @@ module.exports = function (config) {
       ]
     },
     reporters: ['progress', 'kjhtml'],
+    customLaunchers: {
+      // Headless launcher for sandboxed/CI Linux envs (root or no user namespaces).
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage'],
+      },
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

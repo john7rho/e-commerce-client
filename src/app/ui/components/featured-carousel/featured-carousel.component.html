@@ -1,0 +1,52 @@
+<section class="featured-carousel">
+  <h3 class="featured-carousel__heading">Featured Products</h3>
+
+  <div class="featured-carousel__empty" *ngIf="!loading && !products.length">
+    No featured products available.
+  </div>
+
+  <div class="featured-carousel__viewport" *ngIf="products.length">
+    <button
+      type="button"
+      class="featured-carousel__control featured-carousel__control--prev"
+      aria-label="Previous product"
+      (click)="prev()"
+    >
+      &#8249;
+    </button>
+
+    <div class="featured-carousel__slide" *ngIf="activeProduct as product">
+      <img
+        class="featured-carousel__image"
+        [src]="imageUrl(product)"
+        [alt]="product.name"
+        width="220"
+        height="220"
+      />
+      <div class="featured-carousel__info">
+        <h4 class="featured-carousel__name">{{ product.name }}</h4>
+        <p class="featured-carousel__price">{{ product.price | currency }}</p>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="featured-carousel__control featured-carousel__control--next"
+      aria-label="Next product"
+      (click)="next()"
+    >
+      &#8250;
+    </button>
+  </div>
+
+  <div class="featured-carousel__dots" *ngIf="products.length > 1">
+    <button
+      type="button"
+      class="featured-carousel__dot"
+      *ngFor="let product of products; let i = index"
+      [class.featured-carousel__dot--active]="i === activeIndex"
+      [attr.aria-label]="'Go to product ' + (i + 1)"
+      (click)="goTo(i)"
+    ></button>
+  </div>
+</section>
