@@ -1,0 +1,26 @@
+<div class="container px-0 mb-3">
+  <div class="row">
+    <div class="col">
+      <label class="visually-hidden" for="product-search">Search products</label>
+      <div class="input-group">
+        <input
+          id="product-search"
+          type="text"
+          class="form-control"
+          placeholder="Search products by name..."
+          [value]="searchTerm"
+          (input)="onInput($event)"
+        />
+        <button
+          *ngIf="searchTerm"
+          type="button"
+          class="btn btn-outline-secondary"
+          aria-label="Clear product search"
+          (click)="clearSearch()"
+        >
+          Clear
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
