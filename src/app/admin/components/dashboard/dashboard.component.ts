@@ -12,6 +12,7 @@ import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
 
 @Component({
   selector: 'app-dashboard',
+  standalone: false,
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })

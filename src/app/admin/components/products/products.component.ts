@@ -6,6 +6,7 @@ import { ListComponent } from './list/list.component';
 
 @Component({
   selector: 'app-products',
+  standalone: false,
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
 })

@@ -4,6 +4,7 @@ import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
 
 @Component({
   selector: 'app-orders',
+  standalone: false,
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.scss'],
 })

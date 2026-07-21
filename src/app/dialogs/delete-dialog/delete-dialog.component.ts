@@ -4,6 +4,7 @@ import { BaseDialog } from '../base/base-dialog';
 
 @Component({
   selector: 'app-delete-dialog',
+  standalone: false,
   templateUrl: './delete-dialog.component.html',
   styleUrls: ['./delete-dialog.component.scss'],
 })

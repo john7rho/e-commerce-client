@@ -12,6 +12,7 @@ import { FileUploadOptions } from 'src/app/services/common/file-upload/file-uplo
 
 @Component({
   selector: 'app-create',
+  standalone: false,
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss'],
 })

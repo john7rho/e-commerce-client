@@ -26,6 +26,7 @@ declare var $: any;
 
 @Directive({
   selector: '[appDelete]',
+  standalone: false,
 })
 export class DeleteDirective {
   constructor(

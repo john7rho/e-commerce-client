@@ -16,6 +16,7 @@ declare var $;
 
 @Component({
   selector: 'app-product-image-dialog',
+  standalone: false,
   templateUrl: './product-image-dialog.component.html',
   styleUrls: ['./product-image-dialog.component.scss'],
 })

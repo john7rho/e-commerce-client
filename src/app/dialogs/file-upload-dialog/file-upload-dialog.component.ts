@@ -4,6 +4,7 @@ import { BaseDialog } from './../base/base-dialog';
 
 @Component({
   selector: 'app-file-upload-dialog',
+  standalone: false,
   templateUrl: './file-upload-dialog.component.html',
   styleUrls: ['./file-upload-dialog.component.scss'],
 })

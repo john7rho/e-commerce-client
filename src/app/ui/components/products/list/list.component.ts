@@ -7,6 +7,7 @@ import { BaseStorageUrl } from 'src/app/contracts/baseStorageUrl';
 
 @Component({
   selector: 'app-list',
+  standalone: false,
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
