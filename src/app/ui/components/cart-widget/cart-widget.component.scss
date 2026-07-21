@@ -1,0 +1,12 @@
+.cart-widget {
+  gap: 0.35rem;
+  font-weight: 500;
+
+  &__icon {
+    font-size: 1.15rem;
+  }
+
+  &__subtotal {
+    color: #198754;
+  }
+}

@@ -1,0 +1,9 @@
+<div class="cart-widget d-flex align-items-center" data-testid="cart-widget">
+  <span class="cart-widget__icon" aria-hidden="true">🛒</span>
+  <span class="badge bg-success rounded-pill" data-testid="cart-count">{{
+    itemCount$ | async
+  }}</span>
+  <span class="cart-widget__subtotal ms-2" data-testid="cart-subtotal">{{
+    (subtotal$ | async) | currency
+  }}</span>
+</div>

@@ -3,6 +3,7 @@ import { ProductList } from '../../../../contracts/productList';
 import { Component, DebugElement, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/common/models/product.service';
 import { FileService } from 'src/app/services/common/models/file.service';
+import { CartService } from 'src/app/services/common/models/cart.service';
 import { BaseStorageUrl } from 'src/app/contracts/baseStorageUrl';
 
 @Component({
@@ -14,8 +15,13 @@ export class ListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private fileService: FileService
+    private fileService: FileService,
+    private cartService: CartService
   ) {}
+
+  addToCart(product: ProductList): void {
+    this.cartService.addProduct(product);
+  }
 
   products: ProductList[];
   baseStorageUrl: BaseStorageUrl;
