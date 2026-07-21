@@ -1,0 +1,7 @@
+<div class="navbar-nav ms-auto">
+  <span class="nav-item nav-link">
+    Cart
+    <span class="badge bg-success">{{ totalCount$ | async }}</span>
+    <span class="ms-2">{{ subtotal$ | async | currency }}</span>
+  </span>
+</div>

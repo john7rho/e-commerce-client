@@ -6,7 +6,7 @@ import {
   ToastrMessagePosition,
   ToastrMessageType,
 } from './../../../services/ui/custom-toastr.service';
-import { User } from './../../../entities/user';
+import { User } from './../../../entities/User';
 import { UserService } from './../../../services/common/models/user.service';
 import { CreateUser } from '../../../contracts/users/createUser';
 import {

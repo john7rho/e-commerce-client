@@ -18,6 +18,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './ui/components/login/login.component';
 import { UiModule } from './ui/ui.module';
 import { environment } from 'src/environments/environment';
+import { CartSummaryModule } from './ui/components/cart-summary/cart-summary.module';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -27,6 +28,7 @@ import { environment } from 'src/environments/environment';
     BrowserAnimationsModule,
     AdminModule,
     UiModule,
+    CartSummaryModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule,
     HttpClientModule,
