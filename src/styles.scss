@@ -1,1 +1,21 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body.dark-mode {
+  background-color: #212529;
+  color: #f8f9fa;
+
+  .navbar.bg-light {
+    background-color: #343a40 !important;
+  }
+
+  .navbar.bg-light .navbar-brand,
+  .navbar.bg-light .nav-link {
+    color: #f8f9fa;
+  }
+
+  .card,
+  .card-body {
+    background-color: #343a40;
+    color: #f8f9fa;
+  }
+}

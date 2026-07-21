@@ -1,0 +1,9 @@
+<button
+  type="button"
+  class="btn btn-outline-secondary dark-mode-toggle"
+  [attr.aria-label]="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+  (click)="toggle()"
+>
+  <span aria-hidden="true">{{ isDark ? "☀" : "☾" }}</span>
+  {{ isDark ? "Light" : "Dark" }}
+</button>
