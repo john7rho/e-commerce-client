@@ -1,9 +1,12 @@
 <div class="container mt-2">
+  <app-search-filter-bar
+    (search)="onSearch($event)"
+  ></app-search-filter-bar>
   <div class="row gap-3 m-auto">
     <div
       class="card col-3 gx-0"
       style="width: 18.8rem"
-      *ngFor="let product of products"
+      *ngFor="let product of filteredProducts"
     >
       <img
         *ngIf="!product.productImageFiles.length"
@@ -32,6 +35,12 @@
         <a href="#" class="btn btn-success">Add to Card</a>
       </div>
     </div>
+  </div>
+  <div
+    *ngIf="filteredProducts.length === 0 && products.length > 0"
+    class="text-muted mt-3"
+  >
+    No products match your search.
   </div>
 </div>
 

@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { ProductList } from '../../../../contracts/productList';
-import { Component, DebugElement, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/common/models/product.service';
 import { FileService } from 'src/app/services/common/models/file.service';
 import { BaseStorageUrl } from 'src/app/contracts/baseStorageUrl';
@@ -17,13 +17,31 @@ export class ListComponent implements OnInit {
     private fileService: FileService
   ) {}
 
-  products: ProductList[];
+  products: ProductList[] = [];
+  allProducts: ProductList[] = [];
+  searchTerm = '';
   baseStorageUrl: BaseStorageUrl;
   currentPageNumber: number;
   productsCount: number;
   pagesCount: number;
   productsPerPage: number = 4;
   pageNumbers: number[] = [];
+
+  get filteredProducts(): ProductList[] {
+    const searchTerm = this.searchTerm.trim().toLowerCase();
+
+    if (!searchTerm) {
+      return this.allProducts;
+    }
+
+    return this.allProducts.filter((product) =>
+      product.name.toLowerCase().includes(searchTerm)
+    );
+  }
+
+  onSearch(term: string): void {
+    this.searchTerm = term;
+  }
 
   async ngOnInit() {
     this.baseStorageUrl = await this.fileService.getBaseStorageUrl();
@@ -57,6 +75,7 @@ export class ListComponent implements OnInit {
 
         return productList;
       });
+      this.allProducts = this.products;
 
       this.productsCount = data.productsCount;
       this.pagesCount = Math.ceil(this.productsCount / this.productsPerPage);
