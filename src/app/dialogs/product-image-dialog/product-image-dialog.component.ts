@@ -15,9 +15,10 @@ import { ProductService } from 'src/app/services/common/models/product.service';
 declare var $;
 
 @Component({
-  selector: 'app-product-image-dialog',
-  templateUrl: './product-image-dialog.component.html',
-  styleUrls: ['./product-image-dialog.component.scss'],
+    selector: 'app-product-image-dialog',
+    templateUrl: './product-image-dialog.component.html',
+    styleUrls: ['./product-image-dialog.component.scss'],
+    standalone: false
 })
 export class ProductImageDialogComponent
   extends BaseDialog<ProductImageDialogComponent>

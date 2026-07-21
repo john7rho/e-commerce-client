@@ -11,9 +11,10 @@ import { CustomAlertifyService } from 'src/app/services/admin/custom-alertify.se
 import { FileUploadOptions } from 'src/app/services/common/file-upload/file-upload.component';
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss'],
+    selector: 'app-create',
+    templateUrl: './create.component.html',
+    styleUrls: ['./create.component.scss'],
+    standalone: false
 })
 export class CreateComponent extends BaseComponent implements OnInit {
   constructor(

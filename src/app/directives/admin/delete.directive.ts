@@ -25,7 +25,8 @@ import {
 declare var $: any;
 
 @Directive({
-  selector: '[appDelete]',
+    selector: '[appDelete]',
+    standalone: false
 })
 export class DeleteDirective {
   constructor(
