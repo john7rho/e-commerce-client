@@ -29,7 +29,13 @@
           Price: {{ product.price | currency }} <br />
           Stock: {{ product.stock }}
         </p>
-        <a href="#" class="btn btn-success">Add to Card</a>
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="addToCart(product)"
+        >
+          Add to Card
+        </button>
       </div>
     </div>
   </div>
