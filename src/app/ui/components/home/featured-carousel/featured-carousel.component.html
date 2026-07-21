@@ -1,0 +1,82 @@
+<section class="featured-products" aria-labelledby="featured-products-heading">
+  <h2 id="featured-products-heading" class="featured-products__heading">
+    Featured Products
+  </h2>
+
+  <div *ngIf="loading" class="featured-products__message" role="status">
+    Loading featured products...
+  </div>
+
+  <div *ngIf="!loading && errorMessage" class="featured-products__message" role="alert">
+    {{ errorMessage }}
+  </div>
+
+  <div
+    *ngIf="!loading && !errorMessage && !products.length"
+    class="featured-products__message"
+  >
+    No featured products are available right now.
+  </div>
+
+  <div
+    *ngIf="!loading && !errorMessage && products.length"
+    id="featured-products-carousel"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-indicators">
+      <button
+        *ngFor="let product of products; let i = index"
+        type="button"
+        data-bs-target="#featured-products-carousel"
+        [attr.data-bs-slide-to]="i"
+        [class.active]="i === 0"
+        [attr.aria-current]="i === 0 ? 'true' : null"
+        [attr.aria-label]="'Show ' + product.name"
+      ></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div
+        *ngFor="let product of products; let i = index"
+        class="carousel-item"
+        [class.active]="i === 0"
+      >
+        <article class="featured-card">
+          <div class="featured-card__visual" aria-hidden="true">
+            <span>{{ product.name.charAt(0) }}</span>
+          </div>
+          <div class="featured-card__content">
+            <p class="featured-card__eyebrow">Featured product</p>
+            <h3>{{ product.name }}</h3>
+            <p class="featured-card__details">
+              <span>{{ product.price | currency }}</span>
+              <span>{{ product.stock }} in stock</span>
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#featured-products-carousel"
+      data-bs-slide="prev"
+      aria-label="Previous featured product"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#featured-products-carousel"
+      data-bs-slide="next"
+      aria-label="Next featured product"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
