@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, firstValueFrom } from 'rxjs';
 import { CreateUser } from '../../../contracts/users/createUser';
 import { HttpClientService } from '../http-client.service';
-import { User } from './../../../entities/user';
+import { User } from './../../../entities/User';
 
 @Injectable({
   providedIn: 'root',

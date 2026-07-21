@@ -14,4 +14,4 @@ jobs:
           node-version: 18
       - run: npm ci
       - run: npm run build
-      - run: npm run test -- --watch=false --code-coverage --browsers=ChromeHeadless
+      - run: npm run test -- --watch=false --code-coverage --browsers=ChromeHeadlessNoSandbox
