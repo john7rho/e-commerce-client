@@ -2,7 +2,11 @@ import { HttpErrorHandlerInterceptorService } from './services/common/http-error
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -29,7 +33,6 @@ import { environment } from 'src/environments/environment';
     UiModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule,
-    HttpClientModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => localStorage.getItem('accessToken'),
@@ -68,6 +71,7 @@ import { environment } from 'src/environments/environment';
       useClass: HttpErrorHandlerInterceptorService,
       multi: true,
     },
+    provideHttpClient(withInterceptorsFromDi()),
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
