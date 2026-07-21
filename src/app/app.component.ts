@@ -6,6 +6,7 @@ import {
   ToastrMessageType,
 } from './services/ui/custom-toastr.service';
 import { AuthService } from './services/common/auth.service';
+import { ThemeService } from './services/ui/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -15,10 +16,12 @@ import { AuthService } from './services/common/auth.service';
 export class AppComponent {
   constructor(
     public authService: AuthService,
+    public themeService: ThemeService,
     private toastrSerice: CustomToastrService,
     private router: Router
   ) {
     authService.identityCheck();
+    themeService.initialize();
   }
 
   signOut() {

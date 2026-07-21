@@ -1,1 +1,71 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+:root {
+  --theme-background: #ffffff;
+  --theme-text: #212529;
+  --theme-surface: #ffffff;
+  --theme-border: #dee2e6;
+}
+
+body {
+  background-color: var(--theme-background);
+  color: var(--theme-text);
+}
+
+body.dark-theme {
+  --theme-background: #121212;
+  --theme-text: #f5f5f5;
+  --theme-surface: #1e1e1e;
+  --theme-border: #444444;
+  background-color: var(--theme-background);
+  color: var(--theme-text);
+}
+
+body.dark-theme .bg-light,
+body.dark-theme .navbar-light {
+  background-color: var(--theme-surface) !important;
+}
+
+body.dark-theme .navbar-light .navbar-brand,
+body.dark-theme .navbar-light .nav-link,
+body.dark-theme .navbar-light .navbar-nav .nav-link {
+  color: var(--theme-text);
+}
+
+body.dark-theme .navbar-light .navbar-nav .nav-link:hover,
+body.dark-theme .navbar-light .navbar-brand:hover {
+  color: #ffffff;
+}
+
+body.dark-theme .navbar-light .navbar-toggler {
+  border-color: var(--theme-border);
+}
+
+body.dark-theme .navbar-light .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+body.dark-theme .card,
+body.dark-theme .table,
+body.dark-theme .modal-content,
+body.dark-theme .dropdown-menu {
+  background-color: var(--theme-surface);
+  color: var(--theme-text);
+  border-color: var(--theme-border);
+}
+
+body.dark-theme .form-control,
+body.dark-theme .form-select {
+  background-color: #2a2a2a;
+  color: var(--theme-text);
+  border-color: var(--theme-border);
+}
+
+body.dark-theme .form-control::placeholder {
+  color: #bdbdbd;
+}
+
+body.dark-theme .table {
+  --bs-table-color: var(--theme-text);
+  --bs-table-bg: var(--theme-surface);
+}
