@@ -1,6 +1,6 @@
 import { DialogService, DialogParameters } from './../dialog.service';
 import { FileUploadDialogState } from './../../../dialogs/file-upload-dialog/file-upload-dialog.component';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { Component, Input } from '@angular/core';
 import { HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { NgxFileDropEntry } from 'ngx-file-drop';

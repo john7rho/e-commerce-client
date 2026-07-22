@@ -1,4 +1,4 @@
-import { LegacyDialogPosition as DialogPosition, MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { DialogPosition, MatDialog } from '@angular/material/dialog';
 import { Injectable } from '@angular/core';
 import { ComponentType } from 'ngx-toastr';
 
