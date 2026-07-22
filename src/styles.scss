@@ -1,1 +1,33 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Scoped dark theme: only applied when the `dark` class is on <body>. */
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark .navbar.bg-light {
+  background-color: #1e1e1e !important;
+}
+
+body.dark .navbar-light .navbar-brand,
+body.dark .navbar-light .nav-link {
+  color: #e0e0e0;
+}
+
+body.dark .card,
+body.dark .list-group-item,
+body.dark .table {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark a {
+  color: #8ab4f8;
+}
+
+body.dark .form-control {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border-color: #444;
+}
