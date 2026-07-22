@@ -24,6 +24,12 @@ module.exports = function (config) {
     jasmineHtmlReporter: {
       suppressAll: true // removes the duplicated traces
     },
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-gpu', '--headless=new']
+      }
+    },
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/ecommerce-app-client'),
       subdir: '.',
