@@ -1,0 +1,12 @@
+.cart-summary {
+  font-size: 1rem;
+
+  &__icon {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  &__subtotal {
+    font-weight: 600;
+  }
+}
