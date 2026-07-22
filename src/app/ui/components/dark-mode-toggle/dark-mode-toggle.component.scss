@@ -1,0 +1,11 @@
+.dark-mode-toggle {
+  border: 1px solid #ced4da;
+  background-color: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+:host-context(body.dark) .dark-mode-toggle {
+  border-color: #6c757d;
+  color: #f8f9fa;
+}
