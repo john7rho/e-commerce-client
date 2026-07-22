@@ -18,6 +18,7 @@ export class ListComponent implements OnInit {
   ) {}
 
   products: ProductList[];
+  displayedProducts: ProductList[] = [];
   baseStorageUrl: BaseStorageUrl;
   currentPageNumber: number;
   productsCount: number;
@@ -58,6 +59,8 @@ export class ListComponent implements OnInit {
         return productList;
       });
 
+      this.displayedProducts = this.products;
+
       this.productsCount = data.productsCount;
       this.pagesCount = Math.ceil(this.productsCount / this.productsPerPage);
 
@@ -85,5 +88,9 @@ export class ListComponent implements OnInit {
         }
       }
     });
+  }
+
+  onFiltered(products: ProductList[]) {
+    this.displayedProducts = products;
   }
 }
