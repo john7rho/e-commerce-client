@@ -28,7 +28,10 @@ export class LoginComponent extends BaseComponent implements OnInit {
     private userAuthService: UserAuthService
   ) {
     super(spinnerService);
-    socialAuthService.authState.subscribe(async (user: SocialUser) => {
+  }
+
+  ngOnInit(): void {
+    this.socialAuthService.authState.subscribe(async (user: SocialUser) => {
       this.showSpinner(SpinnerType.BallAtom);
 
       switch (user.provider) {
@@ -47,8 +50,6 @@ export class LoginComponent extends BaseComponent implements OnInit {
       }
     });
   }
-
-  ngOnInit(): void {}
 
   async login(userNameOrEmail: string, password: string) {
     this.showSpinner(SpinnerType.BallSpinClockwiseFadeRotating);
