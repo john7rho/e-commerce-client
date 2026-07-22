@@ -1,22 +1,25 @@
 import { TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AppComponent } from './app.component';
 import { AuthService } from './services/common/auth.service';
 import { CustomToastrService } from './services/ui/custom-toastr.service';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      declarations: [AppComponent],
       imports: [
         CommonModule,
-        HttpClientTestingModule,
         NgxSpinnerModule,
         RouterTestingModule,
       ],
-      declarations: [AppComponent],
       providers: [
         {
           provide: AuthService,
@@ -29,6 +32,8 @@ describe('AppComponent', () => {
           provide: CustomToastrService,
           useValue: { message: jasmine.createSpy('message') },
         },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting(),
       ],
     }).compileComponents();
   });
