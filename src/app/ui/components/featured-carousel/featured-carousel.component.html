@@ -1,0 +1,57 @@
+<section class="featured-carousel container mt-4" *ngIf="products.length">
+  <h3 class="featured-carousel__title mb-3">Featured Products</h3>
+
+  <div class="featured-carousel__viewport">
+    <button
+      type="button"
+      class="featured-carousel__control featured-carousel__control--prev"
+      aria-label="Previous featured product"
+      (click)="prev(); stopAutoRotate()"
+    >
+      &lsaquo;
+    </button>
+
+    <div class="featured-carousel__track">
+      <div
+        class="featured-carousel__slide card"
+        *ngFor="let product of products; let i = index"
+        [class.active]="i === activeIndex"
+        [attr.aria-hidden]="i === activeIndex ? null : true"
+      >
+        <img
+          [src]="imageSrc(product)"
+          class="featured-carousel__image card-img-top"
+          alt="{{ product.name }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">
+            Price: {{ product.price | currency }} <br />
+            Stock: {{ product.stock }}
+          </p>
+          <a routerLink="/products" class="btn btn-success">Shop now</a>
+        </div>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="featured-carousel__control featured-carousel__control--next"
+      aria-label="Next featured product"
+      (click)="next(); stopAutoRotate()"
+    >
+      &rsaquo;
+    </button>
+  </div>
+
+  <div class="featured-carousel__dots mt-3">
+    <button
+      type="button"
+      class="featured-carousel__dot"
+      *ngFor="let product of products; let i = index"
+      [class.active]="i === activeIndex"
+      [attr.aria-label]="'Show featured product ' + (i + 1)"
+      (click)="goTo(i); stopAutoRotate()"
+    ></button>
+  </div>
+</section>
