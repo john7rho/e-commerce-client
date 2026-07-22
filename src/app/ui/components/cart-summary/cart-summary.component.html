@@ -1,0 +1,7 @@
+<div class="cart-summary d-flex align-items-center" aria-label="Cart summary">
+  <span class="cart-summary__icon me-2" aria-hidden="true">&#128722;</span>
+  <span class="badge bg-success me-2 cart-summary__count">{{
+    itemCount$ | async
+  }}</span>
+  <span class="cart-summary__subtotal">{{ subtotal$ | async | currency }}</span>
+</div>
