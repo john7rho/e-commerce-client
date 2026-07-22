@@ -16,9 +16,10 @@ import { DialogService } from 'src/app/services/common/dialog.service';
 declare var $: any;
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+    selector: 'app-list',
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.scss'],
+    standalone: false
 })
 export class ListComponent extends BaseComponent implements OnInit {
   constructor(

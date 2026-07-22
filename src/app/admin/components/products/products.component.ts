@@ -5,9 +5,10 @@ import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
 import { ListComponent } from './list/list.component';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss'],
+    selector: 'app-products',
+    templateUrl: './products.component.html',
+    styleUrls: ['./products.component.scss'],
+    standalone: false
 })
 export class ProductsComponent extends BaseComponent implements OnInit {
   constructor(spinnerService: NgxSpinnerService) {

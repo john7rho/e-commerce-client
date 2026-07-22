@@ -18,9 +18,10 @@ import {
 import { FileUploadDialogComponent } from 'src/app/dialogs/file-upload-dialog/file-upload-dialog.component';
 
 @Component({
-  selector: 'app-file-upload',
-  templateUrl: './file-upload.component.html',
-  styleUrls: ['./file-upload.component.scss'],
+    selector: 'app-file-upload',
+    templateUrl: './file-upload.component.html',
+    styleUrls: ['./file-upload.component.scss'],
+    standalone: false
 })
 export class FileUploadComponent {
   constructor(

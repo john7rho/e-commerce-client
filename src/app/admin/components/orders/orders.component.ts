@@ -3,9 +3,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
 
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss'],
+    selector: 'app-orders',
+    templateUrl: './orders.component.html',
+    styleUrls: ['./orders.component.scss'],
+    standalone: false
 })
 export class OrdersComponent extends BaseComponent implements OnInit {
   constructor(spinner: NgxSpinnerService) {

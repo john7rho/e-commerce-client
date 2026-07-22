@@ -6,9 +6,10 @@ import { FileService } from 'src/app/services/common/models/file.service';
 import { BaseStorageUrl } from 'src/app/contracts/baseStorageUrl';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+    selector: 'app-list',
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.scss'],
+    standalone: false
 })
 export class ListComponent implements OnInit {
   constructor(
